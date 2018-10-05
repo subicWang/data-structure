@@ -1,4 +1,5 @@
 #include<iostream>
+#define GET_ARRAY_LEN(array, len){len=sizeof(array)/sizeof(array[0]);}
 using namespace std;
 bool g_invalidinput = false;
 int findTheGreatestSumOfSubArray(int* pData, int nLength){
@@ -19,17 +20,14 @@ int findTheGreatestSumOfSubArray(int* pData, int nLength){
     if(curSum>greatestSum){
       greatestSum = curSum;
     }
-
   }
   return greatestSum;
 }
-int f(int x) {
-    int s=0;
-    while(--x >0)   s+=f(x);
-    return max(s,1);
-}
+
 int main(int argc, char const *argv[]) {
-  int a = f(7);
-  cout<<a;
+  int numbers[]={5,2,1,-4,3,-6,3,9,2,-11,3};
+  int len = sizeof(numbers)/sizeof(numbers[0]);
+  int sum = findTheGreatestSumOfSubArray(numbers, len);
+  cout<<sum;
   return 0;
 }
